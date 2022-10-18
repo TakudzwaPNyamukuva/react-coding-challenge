@@ -4,6 +4,7 @@ import { ICardsData } from '@/interfaces'
 export default function Page1() {
 	const context = useAppContext()
 	const pageOneData = context?.pageOneData
+	const pinnedData = context?.pinnedData
 	const setPageOneData = context?.setPageOneData
 	const setPinnedData = context?.setPinnedData
 
@@ -12,10 +13,12 @@ export default function Page1() {
 			item.id === card?.id ? { ...item, pinned: !card?.pinned } : item,
 		)
 
-		console.log({ updatedData })
-
 		setPageOneData?.(updatedData)
-		setPinnedData?.(updatedData)
+		console.log({ card })
+
+		setPinnedData?.((prevState) => {
+			return [...prevState, card]
+		})
 	}
 
 	let pageContent
@@ -27,7 +30,7 @@ export default function Page1() {
 						<button
 							onClick={() => handleClick(card)}
 							key={index}
-							className={`${card?.bg} ${card?.color} h-32 w-32 rounded-lg flex justify-center items-center capitalize font-semibold cursor-pointer`}
+							className={`${card?.bg} ${card?.color} h-32 w-32 rounded-lg flex flex-col justify-center items-center capitalize font-semibold cursor-pointer`}
 						>
 							{card?.name}
 							{card?.pinned && <p>(pinned)</p>}

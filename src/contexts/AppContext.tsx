@@ -1,4 +1,4 @@
-import { IAppContext, ICardsData, IPinnedData } from '@/interfaces'
+import { IAppContext, ICardsData } from '@/interfaces'
 import React, { createContext, useState } from 'react'
 
 interface IAppProvider {
@@ -36,7 +36,7 @@ export function AppProvider({ children }: IAppProvider) {
 		{ id: 4, page: 2, bg: 'bg-green-600', color: 'text-green-100', name: 'item 4', pinned: false },
 	])
 
-	const [pinnedData, setPinnedData] = useState<IPinnedData[] | undefined>(undefined)
+	const [pinnedData, setPinnedData] = useState<ICardsData[] | undefined>([])
 
 	const contextData = {
 		pageOneData,

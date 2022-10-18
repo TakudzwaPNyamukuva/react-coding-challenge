@@ -20,6 +20,6 @@ export interface IAppContext {
 	setPageOneData: React.Dispatch<React.SetStateAction<ICardsData[] | undefined>>
 	pageTwoData: ICardsData[] | undefined
 	setPageTwoData: React.Dispatch<React.SetStateAction<ICardsData[] | undefined>>
-	pinnedData: IPinnedData[] | undefined
-	setPinnedData: React.Dispatch<React.SetStateAction<IPinnedData[] | undefined>>
+	pinnedData: ICardsData[] | undefined
+	setPinnedData: React.Dispatch<React.SetStateAction<ICardsData[] | undefined>>
 }
