@@ -7,7 +7,7 @@ export default function Page2() {
 	let pageContent
 	if (pageData !== undefined) {
 		pageContent = (
-			<div className='px-2 flex flex-wrap gap-5'>
+			<div className='px-2 pb-5 flex flex-wrap gap-5 justify-center lg:justify-start'>
 				{pageData?.map((card, index) => {
 					return (
 						<button
