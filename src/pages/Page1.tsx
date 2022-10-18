@@ -1,31 +1,14 @@
-import useAppContext from '@/hooks/useAppContext'
-import { ICardsData } from '@/interfaces'
+import { useToggle } from '@/hooks/useToggle'
 
 export default function Page1() {
-	const context = useAppContext()
-	const pageOneData = context?.pageOneData
-	const pinnedData = context?.pinnedData
-	const setPageOneData = context?.setPageOneData
-	const setPinnedData = context?.setPinnedData
-
-	function handleClick(card: ICardsData) {
-		const updatedData = pageOneData?.map((item) =>
-			item.id === card?.id ? { ...item, pinned: !card?.pinned } : item,
-		)
-
-		setPageOneData?.(updatedData)
-		console.log({ card })
-
-		setPinnedData?.((prevState) => {
-			return [...prevState, card]
-		})
-	}
+	const { data, handleClick } = useToggle()
+	const pageData = data?.filter((item) => item?.page === 1)
 
 	let pageContent
-	if (pageOneData !== undefined) {
+	if (pageData !== undefined) {
 		pageContent = (
 			<div className='px-2 flex flex-wrap gap-5'>
-				{pageOneData?.map((card, index) => {
+				{pageData?.map((card, index) => {
 					return (
 						<button
 							onClick={() => handleClick(card)}

@@ -1,18 +1,8 @@
-import useAppContext from '@/hooks/useAppContext'
-import { ICardsData } from '@/interfaces'
+import { useToggle } from '@/hooks/useToggle'
 
 export default function Dashboard() {
-	const context = useAppContext()
-	const pinnedData = context?.pinnedData
-	const setPinnedData = context?.setPinnedData
-
-	console.log({ pinnedData })
-
-	function handleClick(card: ICardsData) {
-		const updatedData = pinnedData?.filter((item) => item?.id !== card?.id)
-
-		setPinnedData?.(updatedData)
-	}
+	const { data, handleClick } = useToggle()
+	const pinnedData = data?.filter((item) => item?.pinned)
 
 	let pageContent
 	if (pinnedData?.length !== 0) {

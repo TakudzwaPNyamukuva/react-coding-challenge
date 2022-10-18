@@ -16,10 +16,6 @@ export interface IPinnedData {
 }
 
 export interface IAppContext {
-	pageOneData: ICardsData[] | undefined
-	setPageOneData: React.Dispatch<React.SetStateAction<ICardsData[] | undefined>>
-	pageTwoData: ICardsData[] | undefined
-	setPageTwoData: React.Dispatch<React.SetStateAction<ICardsData[] | undefined>>
-	pinnedData: ICardsData[] | undefined
-	setPinnedData: React.Dispatch<React.SetStateAction<ICardsData[] | undefined>>
+	data: ICardsData[] | undefined
+	setData: React.Dispatch<React.SetStateAction<ICardsData[] | undefined>>
 }
