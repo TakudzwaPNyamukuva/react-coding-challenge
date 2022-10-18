@@ -1,4 +1,5 @@
 import App from '@/App'
+import { AppProvider } from '@/contexts/AppContext'
 import '@/index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -8,7 +9,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<App />
+			<AppProvider>
+				<App />
+			</AppProvider>
 		</BrowserRouter>
 	</React.StrictMode>,
 )
